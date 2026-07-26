@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The IO Prep — IGCSE &amp; IB English video courses</title>
+<meta name="description" content="In-depth IGCSE and IB English video courses, taught by a 45/45 IB scorer and Oxford/Harvard-trained academic. Join the waitlist for launch.">
+
+<!--
+  PLACEHOLDER NOTES (search for "PLACEHOLDER" throughout this file):
+  - Instructor's name is not yet filled in — currently reads "[Instructor name]".
+  - Carousel "images" are styled placeholder panels labelled with campus names, since no
+    licensed photography has been supplied yet. Replace each .carousel-slide background
+    with a real photo (wide/panoramic aspect, e.g. 21:9) before launch — using actual
+    stock campus photography here would raise licensing questions, so a placeholder
+    was used instead.
+  - Email form action points to a placeholder endpoint — wire this up to a real mailing
+    list provider (Mailchimp, ConvertKit, etc.) before launch.
+  - Pricing, launch date, and contact details are placeholders.
+  - Logo: no logo file exists yet, so the wordmark "The IO Prep" is set in plain type
+    per the brand design system (see project design system for reasoning).
+-->
+
+<style>
+  :root{
+    --oxford-blue-900:#001830;
+    --oxford-blue:#002147;
+    --oxford-blue-700:#0a3568;
+    --oxford-blue-500:#1e4d85;
+    --oxford-blue-300:#6f8daf;
+    --oxford-blue-100:#d7e0ea;
+    --oxford-blue-050:#eef2f7;
+    --gold-700:#8a6a12;
+    --gold-500:#b8912c;
+    --gold:#c9a227;
+    --gold-300:#e0c876;
+    --gold-100:#f0e6c8;
+    --cream:#f7f3e9;
+    --cream-100:#fbf9f3;
+    --white:#ffffff;
+    --ink:#101418;
+    --gray-900:#1c2126;
+    --gray-700:#3c444d;
+    --gray-500:#68707a;
+    --gray-300:#aab1ba;
+    --gray-100:#dfe3e7;
+    --gray-050:#f3f5f6;
+    --success:#3f6b4a;
+    --success-bg:#e7efe8;
+    --error:#8c2f2f;
+    --error-bg:#f6e8e8;
+
+    --font-serif:"Times New Roman",Times,Georgia,"Liberation Serif",serif;
+
+    --fs-display:56px;
+    --fs-h1:40px;
+    --fs-h2:32px;
+    --fs-h3:24px;
+    --fs-h4:20px;
+    --fs-body-lg:19px;
+    --fs-body:17px;
+    --fs-small:15px;
+    --fs-caption:13px;
+    --fs-eyebrow:13px;
+
+    --lh-tight:1.12;
+    --lh-heading:1.22;
+    --lh-body:1.6;
+
+    --space-1:4px;
+    --space-2:8px;
+    --space-3:12px;
+    --space-4:16px;
+    --space-5:24px;
+    --space-6:32px;
+    --space-7:48px;
+    --space-8:64px;
+    --space-9:96px;
+    --space-10:128px;
+    --container-max:1180px;
+    --container-narrow:760px;
+
+    --radius-sm:2px;
+    --radius-md:3px;
+    --radius-lg:4px;
+    --radius-pill:999px;
+
+    --shadow-card:0 1px 2px rgba(0,33,71,0.06),0 2px 8px rgba(0,33,71,0.07);
+    --shadow-raised:0 4px 16px rgba(0,33,71,0.12);
+    --ease-standard:cubic-bezier(.4,0,.2,1);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-serif);
+    font-size:var(--fs-body);
+    line-height:var(--lh-body);
+    color:var(--ink);
+    background:var(--white);
+  }
+  h1,h2,h3,h4{
+    font-family:var(--font-serif);
+    font-weight:700;
+    line-height:var(--lh-heading);
+    color:var(--oxford-blue);
+    margin:0 0 var(--space-4);
+  }
+  h1{ font-size:var(--fs-h1); line-height:var(--lh-tight); }
+  h2{ font-size:var(--fs-h2); }
+  h3{ font-size:var(--fs-h3); }
+  p{ margin:0 0 var(--space-4); }
+  a{ color:var(--oxford-blue); }
+  a:hover{ color:var(--gold-700); }
+  ul{ margin:0; padding:0; list-style:none; }
+
+  .container{
+    max-width:var(--container-max);
+    margin:0 auto;
+    padding:0 var(--space-5);
+  }
+  .container-narrow{
+    max-width:var(--container-narrow);
+    margin:0 auto;
+    padding:0 var(--space-5);
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:var(--fs-eyebrow);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-700);
+    margin-bottom:var(--space-3);
+  }
+
+  section{ padding:var(--space-9) 0; }
+  @media (max-width:640px){
+    section{ padding:var(--space-7) 0; }
+  }
+
+  /* ---------- Top banner ---------- */
+  .top-banner{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--white);
+    border-bottom:1px solid var(--gray-100);
+  }
+  .top-banner .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:var(--space-3) var(--space-5);
+    max-width:var(--container-max);
+    margin:0 auto;
+    gap:var(--space-4);
+  }
+  .wordmark{
+    font-family:var(--font-serif);
+    font-weight:700;
+    font-size:22px;
+    color:var(--oxford-blue);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .top-nav{
+    display:flex;
+    align-items:center;
+    gap:var(--space-6);
+  }
+  .top-nav a{
+    font-size:var(--fs-small);
+    text-decoration:none;
+    color:var(--oxford-blue);
+  }
+  @media (max-width:800px){
+    .top-nav a.nav-link{ display:none; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-serif);
+    font-size:var(--fs-small);
+    font-weight:700;
+    padding:11px 22px;
+    border-radius:var(--radius-md);
+    border:1px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background-color var(--ease-standard) 160ms, border-color var(--ease-standard) 160ms, color var(--ease-standard) 160ms;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--oxford-blue);
+    color:var(--white);
+  }
+  .btn-primary:hover{ background:var(--oxford-blue-900); color:var(--white); }
+  .btn-gold{
+    background:var(--gold);
+    color:var(--oxford-blue-900);
+  }
+  .btn-gold:hover{ background:var(--gold-500); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--oxford-blue);
+    border-color:var(--oxford-blue);
+  }
+  .btn-ghost:hover{ background:var(--oxford-blue-050); }
+  .btn-sm{ padding:8px 16px; font-size:var(--fs-caption); }
+
+  /* ---------- Carousel ---------- */
+  .carousel{
+    position:relative;
+    width:100%;
+    aspect-ratio:21/9;
+    max-height:480px;
+    overflow:hidden;
+    background:var(--oxford-blue-900);
+  }
+  @media (max-width:640px){
+    .carousel{ aspect-ratio:16/9; }
+  }
+  .carousel-track{
+    display:flex;
+    height:100%;
+    transition:transform 700ms var(--ease-standard);
+  }
+  .carousel-slide{
+    flex:0 0 100%;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    padding:var(--space-6);
+    color:var(--white);
+    position:relative;
+  }
+  .carousel-slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,24,48,0.05) 0%, rgba(0,24,48,0.55) 100%);
+  }
+  .carousel-slide-label{
+    position:relative;
+    z-index:1;
+    font-size:var(--fs-h4);
+    letter-spacing:0.04em;
+  }
+  .carousel-slide-caption{
+    position:relative;
+    z-index:1;
+    font-size:var(--fs-caption);
+    opacity:0.85;
+    margin-top:2px;
+  }
+  /* Placeholder campus "photos" — flat gradient panels standing in for real photography */
+  .slide-1{ background:linear-gradient(135deg, var(--oxford-blue-700), var(--oxford-blue-900)); }
+  .slide-2{ background:linear-gradient(135deg, var(--oxford-blue-500), var(--oxford-blue-700)); }
+  .slide-3{ background:linear-gradient(135deg, var(--gold-700), var(--oxford-blue-900)); }
+  .slide-4{ background:linear-gradient(135deg, var(--oxford-blue-900), var(--gray-900)); }
+  .slide-5{ background:linear-gradient(135deg, var(--oxford-blue-300), var(--oxford-blue-700)); }
+  .slide-6{ background:linear-gradient(135deg, var(--gold-500), var(--oxford-blue-900)); }
+
+  .carousel-dots{
+    position:absolute;
+    bottom:var(--space-4);
+    right:var(--space-6);
+    z-index:2;
+    display:flex;
+    gap:var(--space-2);
+  }
+  .carousel-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.4);
+    border:none;
+    cursor:pointer;
+    padding:0;
+  }
+  .carousel-dot.active{ background:var(--white); }
+  .carousel-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    background:rgba(0,24,48,0.35);
+    color:var(--white);
+    border:none;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1;
+  }
+  .carousel-arrow:hover{ background:rgba(0,24,48,0.6); }
+  .carousel-arrow.prev{ left:var(--space-4); }
+  .carousel-arrow.next{ right:var(--space-4); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--cream-100);
+    padding:var(--space-8) 0;
+    text-align:center;
+  }
+  .hero h1{
+    max-width:820px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero .sub{
+    max-width:600px;
+    margin:0 auto var(--space-6);
+    color:var(--gray-700);
+    font-size:var(--fs-body-lg);
+  }
+
+  /* ---------- Email capture (compact, used in hero + banner) ---------- */
+  .email-capture{
+    display:flex;
+    gap:var(--space-2);
+    max-width:460px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .email-capture input[type="email"]{
+    flex:1 1 240px;
+    font-family:var(--font-serif);
+    font-size:var(--fs-small);
+    padding:11px 14px;
+    border:1px solid var(--gray-300);
+    border-radius:var(--radius-md);
+    background:var(--white);
+    color:var(--ink);
+  }
+  .email-capture input[type="email"]:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    border-color:var(--oxford-blue);
+  }
+  .form-note{
+    font-size:var(--fs-caption);
+    color:var(--gray-500);
+    margin-top:var(--space-3);
+  }
+
+  .banner-form{
+    display:flex;
+    gap:var(--space-2);
+  }
+  @media (max-width:800px){
+    .banner-form{ display:none; }
+  }
+  .banner-form input[type="email"]{
+    font-family:var(--font-serif);
+    font-size:var(--fs-caption);
+    padding:7px 10px;
+    border:1px solid var(--gray-300);
+    border-radius:var(--radius-md);
+    width:180px;
+  }
+
+  /* ---------- Problem section ---------- */
+  .problem{
+    background:var(--white);
+  }
+  .problem .container-narrow{ text-align:center; }
+  .problem p{ color:var(--gray-700); font-size:var(--fs-body-lg); }
+
+  /* ---------- Product section ---------- */
+  .product{ background:var(--cream); }
+  .product-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--space-8);
+    align-items:start;
+  }
+  @media (max-width:800px){
+    .product-grid{ grid-template-columns:1fr; gap:var(--space-6); }
+  }
+  .feature-list{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-5);
+  }
+  .feature-item{
+    display:flex;
+    gap:var(--space-4);
+    background:var(--white);
+    border:1px solid var(--gray-100);
+    border-radius:var(--radius-lg);
+    padding:var(--space-5);
+    box-shadow:var(--shadow-card);
+  }
+  .feature-mark{
+    flex:0 0 auto;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--oxford-blue);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:var(--fs-small);
+    font-weight:700;
+  }
+  .feature-item h4{ margin-bottom:var(--space-1); }
+  .feature-item p{ margin:0; color:var(--gray-700); font-size:var(--fs-small); }
+
+  .how-it-works{
+    background:var(--white);
+    border:1px solid var(--gray-100);
+    border-radius:var(--radius-lg);
+    padding:var(--space-6);
+    box-shadow:var(--shadow-card);
+  }
+  .how-steps{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-4);
+    margin-top:var(--space-4);
+  }
+  .how-step{
+    display:flex;
+    align-items:baseline;
+    gap:var(--space-3);
+    border-bottom:1px solid var(--gray-100);
+    padding-bottom:var(--space-4);
+  }
+  .how-step:last-child{ border-bottom:none; padding-bottom:0; }
+  .how-step .num{
+    font-weight:700;
+    color:var(--gold-700);
+    font-size:var(--fs-h4);
+    flex:0 0 auto;
+    width:28px;
+  }
+
+  /* ---------- About / credibility ---------- */
+  .about{ background:var(--oxford-blue); color:var(--white); }
+  .about h2, .about .eyebrow{ color:var(--white); }
+  .about .eyebrow{ color:var(--gold-300); }
+  .about-wrap{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:var(--space-7);
+    align-items:start;
+  }
+  @media (max-width:700px){
+    .about-wrap{ grid-template-columns:1fr; }
+  }
+  .credential-badge{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius-lg);
+    padding:var(--space-5);
+    text-align:center;
+  }
+  .credential-badge .score{
+    font-size:var(--fs-display);
+    font-weight:700;
+    color:var(--gold-300);
+    line-height:1;
+  }
+  .credential-badge .label{
+    font-size:var(--fs-caption);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--oxford-blue-100);
+    margin-top:var(--space-2);
+  }
+  .about p{ color:var(--oxford-blue-100); }
+  .credential-list{
+    margin-top:var(--space-4);
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-2);
+  }
+  .credential-list li{
+    padding-left:var(--space-5);
+    position:relative;
+    color:var(--white);
+    font-size:var(--fs-small);
+  }
+  .credential-list li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--gold-300);
+  }
+
+  /* ---------- Why sign up now ---------- */
+  .signup-section{ background:var(--cream-100); }
+  .signup-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--space-8);
+  }
+  @media (max-width:800px){
+    .signup-wrap{ grid-template-columns:1fr; }
+  }
+  .perk-list{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-4);
+  }
+  .perk{
+    display:flex;
+    gap:var(--space-3);
+  }
+  .perk-icon{
+    flex:0 0 auto;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    color:var(--gold-700);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:700;
+  }
+  .perk p{ margin:0; color:var(--gray-700); font-size:var(--fs-small); }
+  .perk strong{ color:var(--oxford-blue); }
+
+  .full-form{
+    background:var(--white);
+    border:1px solid var(--gray-100);
+    border-radius:var(--radius-lg);
+    padding:var(--space-6);
+    box-shadow:var(--shadow-raised);
+  }
+  .full-form h3{ margin-bottom:var(--space-2); }
+  .full-form .intro{ color:var(--gray-500); font-size:var(--fs-small); margin-bottom:var(--space-5); }
+  .field{ margin-bottom:var(--space-4); }
+  .field label{
+    display:block;
+    font-size:var(--fs-caption);
+    font-weight:700;
+    color:var(--oxford-blue);
+    margin-bottom:var(--space-1);
+    letter-spacing:0.02em;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field select{
+    width:100%;
+    font-family:var(--font-serif);
+    font-size:var(--fs-small);
+    padding:10px 12px;
+    border:1px solid var(--gray-300);
+    border-radius:var(--radius-md);
+    background:var(--white);
+    color:var(--ink);
+  }
+  .field input:focus, .field select:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    border-color:var(--oxford-blue);
+  }
+  .checkbox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--space-2);
+  }
+  .checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:var(--space-2);
+    font-size:var(--fs-small);
+    color:var(--gray-700);
+  }
+  .checkbox-row input{ accent-color:var(--oxford-blue); }
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--space-3);
+  }
+  @media (max-width:480px){
+    .field-row{ grid-template-columns:1fr; }
+  }
+  .full-form .btn{ width:100%; margin-top:var(--space-2); }
+
+  .form-success{
+    display:none;
+    text-align:center;
+    padding:var(--space-6) 0;
+  }
+  .form-success h3{ margin-bottom:var(--space-2); }
+  .form-success p{ color:var(--gray-700); }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background:var(--white); }
+  .faq-item{
+    border-bottom:1px solid var(--gray-100);
+  }
+  .faq-question{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:var(--space-4) 0;
+    font-family:var(--font-serif);
+    font-size:var(--fs-body-lg);
+    font-weight:700;
+    color:var(--oxford-blue);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:var(--space-3);
+  }
+  .faq-question .chevron{
+    flex:0 0 auto;
+    transition:transform var(--ease-standard) 160ms;
+    color:var(--gold-700);
+  }
+  .faq-item.open .chevron{ transform:rotate(45deg); }
+  .faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 240ms var(--ease-standard);
+  }
+  .faq-answer p{
+    color:var(--gray-700);
+    padding-bottom:var(--space-4);
+    font-size:var(--fs-body);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--oxford-blue-900);
+    color:var(--oxford-blue-100);
+    padding:var(--space-7) 0 var(--space-5);
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:var(--space-6);
+    padding-bottom:var(--space-5);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .footer-col h4{ color:var(--white); font-size:var(--fs-small); margin-bottom:var(--space-3); }
+  .footer-col a{
+    display:block;
+    color:var(--oxford-blue-100);
+    text-decoration:none;
+    font-size:var(--fs-small);
+    margin-bottom:var(--space-2);
+  }
+  .footer-col a:hover{ color:var(--gold-300); }
+  .footer-wordmark{ color:var(--white); font-weight:700; font-size:20px; margin-bottom:var(--space-2); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    padding-top:var(--space-4);
+    font-size:var(--fs-caption);
+    color:var(--oxford-blue-300);
+  }
+
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto var(--space-7);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BANNER ============ -->
+<div class="top-banner">
+  <div class="row">
+    <a href="#top" class="wordmark">The IO Prep</a>
+    <nav class="top-nav">
+      <a href="#product" class="nav-link">Courses</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <!-- PLACEHOLDER: compact inline signup, wire to same mailing list endpoint as main form -->
+      <form class="banner-form" action="#" method="post" onsubmit="return handleQuickSignup(event)">
+        <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary btn-sm">Join waitlist</button>
+      </form>
+      <a href="#signup" class="btn btn-ghost btn-sm">Join waitlist</a>
+    </nav>
+  </div>
+</div>
+
+<a id="top"></a>
+
+<!-- ============ CAROUSEL ============ -->
+<!-- PLACEHOLDER: replace each slide's background with a real, wide/panoramic (~21:9) photo
+     of the named campus once licensed photography is available. -->
+<div class="carousel" id="carousel" aria-label="Campus photo carousel">
+  <button class="carousel-arrow prev" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide slide-1">
+      <div>
+        <div class="carousel-slide-label">Oxford</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+    <div class="carousel-slide slide-2">
+      <div>
+        <div class="carousel-slide-label">Harvard</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+    <div class="carousel-slide slide-3">
+      <div>
+        <div class="carousel-slide-label">Cambridge</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+    <div class="carousel-slide slide-4">
+      <div>
+        <div class="carousel-slide-label">Yale</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+    <div class="carousel-slide slide-5">
+      <div>
+        <div class="carousel-slide-label">Princeton</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+    <div class="carousel-slide slide-6">
+      <div>
+        <div class="carousel-slide-label">Columbia</div>
+        <div class="carousel-slide-caption">Placeholder — replace with campus photography</div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-arrow next" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">IGCSE English · IB English SL &amp; HL</span>
+    <h1>Confident, exam-ready English — before results day arrives.</h1>
+    <p class="sub">In-depth video courses for IGCSE and IB English, taught by a 45/45 IB scorer trained at Oxford and Harvard.</p>
+    <form class="email-capture" action="#" method="post" onsubmit="return handleQuickSignup(event)">
+      <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
+      <button type="submit" class="btn btn-primary">Join the waitlist</button>
+    </form>
+    <p class="form-note">No spam. One email when we launch, plus a free resource below.</p>
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="problem">
+  <div class="container-narrow">
+    <span class="eyebrow">The problem</span>
+    <h2>English mark schemes reward a precision that's rarely taught directly.</h2>
+    <p>Most students can write in complete sentences — very few are shown exactly what an examiner is scoring against, for Paper 1's unseen commentary or Paper 2's comparative essay. Good tutoring fixes this, but it is expensive and inconsistent, and a single one-to-one session can cost more than a month of structured lessons. Add the Individual Oral and the Extended Essay on top, and most students are left to work out how it all connects on their own.</p>
+  </div>
+</section>
+
+<!-- ============ MID-PAGE CTA #1 ============ -->
+<section style="background:var(--oxford-blue); padding:var(--space-6) 0;">
+  <div class="container" style="text-align:center;">
+    <p style="color:var(--white); margin-bottom:var(--space-4); font-size:var(--fs-body-lg);">Be the first to know when enrolment opens.</p>
+    <a href="#signup" class="btn btn-gold">Join the waitlist</a>
+  </div>
+</section>
+
+<!-- ============ THE PRODUCT ============ -->
+<section class="product" id="product">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What you get</span>
+      <h2>Full-length video lessons, not clips</h2>
+      <p style="color:var(--gray-700);">Each course is built from complete, hour-long lessons organised by paper and skill — so you can work through a whole topic in one sitting, or return to exactly the lesson you need before an exam.</p>
+    </div>
+    <div class="product-grid">
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-mark">1</div>
+          <div>
+            <h4>Structured by paper and skill</h4>
+            <p>Paper 1 (unseen commentary), Paper 2 (comparative essay), the Individual Oral, and the Extended Essay are each treated as their own module, built directly around real mark scheme language.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-mark">2</div>
+          <div>
+            <h4>Full-length lessons, not trailers</h4>
+            <p>Every lesson runs long enough to fully unpack a skill — modelled essays, live annotation, and worked examples, not short highlight clips.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-mark">3</div>
+          <div>
+            <h4>Built for both curricula</h4>
+            <p>Separate IGCSE English and IB English (SL and HL) tracks, so the material matches the syllabus you are actually sitting.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-mark">4</div>
+          <div>
+            <h4>Self-paced, on your schedule</h4>
+            <p>Enrol once and revisit any lesson as many times as you need in the run-up to exams.</p>
+          </div>
+        </div>
+      </div>
+      <div class="how-it-works">
+        <span class="eyebrow">How it will work</span>
+        <h3>From lesson to exam-ready</h3>
+        <!-- PLACEHOLDER: confirm exact course mechanics before launch -->
+        <div class="how-steps">
+          <div class="how-step">
+            <span class="num">01</span>
+            <div>
+              <strong>Watch a structured lesson</strong>
+              <p style="margin:0; color:var(--gray-700); font-size:var(--fs-small);">Full-length teaching on one specific skill or text.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <span class="num">02</span>
+            <div>
+              <strong>Complete the paired practice task</strong>
+              <p style="margin:0; color:var(--gray-700); font-size:var(--fs-small);">Apply what you just watched to an exam-style question.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <span class="num">03</span>
+            <div>
+              <strong>Check against a modelled response</strong>
+              <p style="margin:0; color:var(--gray-700); font-size:var(--fs-small);">Compare your work to an examiner-informed model answer.</p>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:var(--fs-caption); color:var(--gray-500); margin-top:var(--space-4); margin-bottom:0;">Initial launch covers IGCSE and IB English. Further subjects will be added as demand grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / CREDIBILITY ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="credential-badge">
+        <div class="score">45/45</div>
+        <div class="label">IB Diploma</div>
+      </div>
+      <div>
+        <span class="eyebrow">Who's behind this</span>
+        <h2>Taught by someone who has been examined at the highest level — twice over.</h2>
+        <p><!-- PLACEHOLDER: instructor name --> [Instructor name] scored a 45/45 on the IB Diploma, with English, History, and Geography at Higher Level. She went on to study English at the University of Oxford for both her undergraduate and master's degrees, and is now a PhD candidate at Harvard.</p>
+        <p>The IO Prep exists because she has spent years thinking about exactly how examiners read student writing — and has built these courses to teach that directly, rather than around it.</p>
+        <ul class="credential-list">
+          <li>45/45, IB Diploma (English, History &amp; Geography, Higher Level)</li>
+          <li>BA, University of Oxford</li>
+          <li>MSt/MA, University of Oxford <!-- PLACEHOLDER: confirm exact degree title --></li>
+          <li>PhD candidate, Harvard University</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY SIGN UP NOW / MAIN FORM ============ -->
+<section class="signup-section" id="signup">
+  <div class="container">
+    <div class="signup-wrap">
+      <div>
+        <span class="eyebrow">Why join now</span>
+        <h2>Join the waitlist</h2>
+        <p style="color:var(--gray-700);">The IO Prep hasn't launched yet. Joining the waitlist gets you:</p>
+        <div class="perk-list">
+          <div class="perk">
+            <div class="perk-icon">1</div>
+            <p><strong>Launch notification.</strong> Be the first to know the moment courses go live.</p>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">2</div>
+            <!-- PLACEHOLDER: confirm lead magnet before launch -->
+            <p><strong>A free IB English Paper 1 checklist.</strong> The same framework used to mark unseen commentary, distilled into a one-page reference — sent straight to your inbox.</p>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">3</div>
+            <!-- PLACEHOLDER: confirm early-bird pricing plan -->
+            <p><strong>Early-bird pricing.</strong> Waitlist subscribers get first access to launch pricing, before it opens more widely.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="full-form">
+        <div id="fullFormWrap">
+          <h3>Tell us a little about you</h3>
+          <p class="intro">This helps us prioritise which courses to build first.</p>
+          <form id="fullForm" onsubmit="return handleFullSignup(event)">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label>Subjects of interest</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-row"><input type="checkbox" name="subject" value="IGCSE English"> IGCSE English</label>
+                <label class="checkbox-row"><input type="checkbox" name="subject" value="IB English SL"> IB English SL</label>
+                <label class="checkbox-row"><input type="checkbox" name="subject" value="IB English HL"> IB English HL</label>
+                <label class="checkbox-row"><input type="checkbox" name="subject" value="Other"> Other <!-- PLACEHOLDER: future subjects --></label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="currentGrade">Current grade</label>
+                <!-- PLACEHOLDER: confirm exact grade options per curriculum -->
+                <input type="text" id="currentGrade" name="currentGrade" placeholder="e.g. Grade 6 / Level 4">
+              </div>
+              <div class="field">
+                <label for="targetGrade">Target grade</label>
+                <input type="text" id="targetGrade" name="targetGrade" placeholder="e.g. Grade 9 / Level 7">
+              </div>
+            </div>
+            <div class="field">
+              <label for="level">Current level of education</label>
+              <select id="level" name="level">
+                <option value="">Select one</option>
+                <option>IGCSE — Year 10</option>
+                <option>IGCSE — Year 11</option>
+                <option>IB Diploma — Year 1</option>
+                <option>IB Diploma — Year 2</option>
+                <option>Parent / guardian</option>
+                <option>Teacher / tutor</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="country">Country / region</label>
+              <input type="text" id="country" name="country" placeholder="e.g. United Kingdom">
+            </div>
+            <button type="submit" class="btn btn-primary">Join the waitlist</button>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <h3>You're on the list.</h3>
+          <p>Thank you — we'll be in touch when The IO Prep launches, plus your free Paper 1 checklist shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>When does The IO Prep launch?</span>
+        <span class="chevron">+</span>
+      </button>
+      <div class="faq-answer">
+        <!-- PLACEHOLDER: confirm launch timing -->
+        <p>We don't have an exact date to share yet. Join the waitlist and you'll be the first to know as soon as courses go live.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>What will it cost?</span>
+        <span class="chevron">+</span>
+      </button>
+      <div class="faq-answer">
+        <!-- PLACEHOLDER: confirm pricing model -->
+        <p>Pricing hasn't been finalised. Waitlist subscribers will get access to early-bird pricing ahead of general launch.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Is this for IGCSE or IB?</span>
+        <span class="chevron">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Both. At launch we're offering separate IGCSE English and IB English (Standard Level and Higher Level) tracks, each built around its own syllabus and mark scheme.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>What format are the lessons?</span>
+        <span class="chevron">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Full-length video lessons, organised by paper and topic, that you watch at your own pace and revisit as often as you like.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Will you cover other subjects?</span>
+        <span class="chevron">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We're launching with IGCSE and IB English first, and plan to add further subjects gradually as demand arises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-col" style="max-width:280px;">
+        <div class="footer-wordmark">The IO Prep</div>
+        <p style="font-size:var(--fs-small); color:var(--oxford-blue-300); margin:0;">In-depth video courses for IGCSE and IB English.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- PLACEHOLDER: contact email -->
+        <a href="mailto:hello@theioprep.com">hello@theioprep.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <!-- PLACEHOLDER: real social links -->
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="#product">Courses</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> The IO Prep. All rights reserved.</span>
+      <span>Made with care, for students who take English seriously.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Footer year ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Carousel ----------
+  var track = document.getElementById('carouselTrack');
+  var slides = track.children;
+  var dotsWrap = document.getElementById('carouselDots');
+  var current = 0;
+  var autoplayId;
+
+  for (var i = 0; i < slides.length; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', (function (idx) {
+      return function () { goToSlide(idx); };
+    })(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function updateDots() {
+    var dots = dotsWrap.children;
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].classList.toggle('active', d === current);
+    }
+  }
+
+  function goToSlide(idx) {
+    current = (idx + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    updateDots();
+  }
+
+  function moveSlide(delta) {
+    goToSlide(current + delta);
+    resetAutoplay();
+  }
+
+  function startAutoplay() {
+    autoplayId = setInterval(function () { goToSlide(current + 1); }, 5000);
+  }
+  function resetAutoplay() {
+    clearInterval(autoplayId);
+    startAutoplay();
+  }
+
+  var carouselEl = document.getElementById('carousel');
+  carouselEl.addEventListener('mouseenter', function () { clearInterval(autoplayId); });
+  carouselEl.addEventListener('mouseleave', startAutoplay);
+  startAutoplay();
+
+  // ---------- FAQ accordion ----------
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var answer = item.querySelector('.faq-answer');
+    var isOpen = item.classList.contains('open');
+
+    var allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(function (el) {
+      el.classList.remove('open');
+      el.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ---------- Signup handlers ----------
+  // PLACEHOLDER: both handlers currently just show a success state locally.
+  // Wire these up to a real mailing list provider (e.g. Mailchimp, ConvertKit,
+  // a serverless function, etc.) before launch.
+  function handleQuickSignup(e) {
+    e.preventDefault();
+    var email = e.target.querySelector('input[type="email"]').value;
+    if (!email) return false;
+    document.getElementById('email').value = email;
+    document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    return false;
+  }
+
+  function handleFullSignup(e) {
+    e.preventDefault();
+    // PLACEHOLDER: send form data to mailing list provider here.
+    document.getElementById('fullFormWrap').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    return false;
+  }
+</script>
+
+</body>
+</html>
