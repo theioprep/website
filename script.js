@@ -14,12 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ---------- signup modal ---------- */
+  // Event delegation (not querySelectorAll-at-load) so this also works for
+  // elements added later, e.g. the recent-post cards rendered by the
+  // per-page inline script after this file has already run.
   const modalOverlay = document.getElementById("signup-modal");
-  const openButtons = document.querySelectorAll("[data-open-signup]");
-  const closeButtons = document.querySelectorAll("[data-close-signup]");
+  let pendingRedirect = null; // set when a trigger wants a redirect after the modal closes
 
-  function openModal() {
+  function openModal(redirectHref) {
     if (!modalOverlay) return;
+    pendingRedirect = redirectHref || null;
     modalOverlay.classList.add("open");
     document.body.style.overflow = "hidden";
   }
@@ -27,16 +30,37 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!modalOverlay) return;
     modalOverlay.classList.remove("open");
     document.body.style.overflow = "";
+    if (pendingRedirect) {
+      const dest = pendingRedirect;
+      pendingRedirect = null;
+      window.location.href = dest;
+    }
   }
 
-  openButtons.forEach((btn) => btn.addEventListener("click", openModal));
-  closeButtons.forEach((btn) => btn.addEventListener("click", closeModal));
+  document.addEventListener("click", function (e) {
+    const opener = e.target.closest("[data-open-signup]");
+    if (opener) {
+      e.preventDefault();
+      openModal(opener.getAttribute("data-redirect-href"));
+      return;
+    }
+    const closer = e.target.closest("[data-close-signup]");
+    if (closer) {
+      closeModal();
+    }
+  });
+  // Clicking a card with a nested "read more" link/button should also
+  // trigger the same gate rather than the link firing directly.
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-open-signup]")) {
+      e.preventDefault();
+      openModal(e.target.getAttribute("data-redirect-href"));
+    }
+  });
   if (modalOverlay) {
     modalOverlay.addEventListener("click", function (e) {
       if (e.target === modalOverlay) closeModal();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeModal();
     });
   }
 

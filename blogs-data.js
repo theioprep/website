@@ -10,7 +10,12 @@ const BLOG_POSTS = [
     title: "[Placeholder title] Five things examiners actually reward",
     excerpt: "[Placeholder excerpt — a short 1–2 sentence summary of the post goes here.]",
     date: "2026-07-20",
-    tag: "IB English"
+    tag: "IB English",
+    // Individual post pages are named by date (YYYYMMDD.html). Only this
+    // one exists so far (see 20260720.html) — add a `url` field here once
+    // each post below gets its own page, or drop it to fall back to the
+    // in-page anchor on blogs.html.
+    url: "20260720.html"
   },
   {
     id: "post-2",

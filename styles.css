@@ -217,20 +217,23 @@ button{font-family:var(--font-serif);}
 }
 
 /* ---------- carousel ---------- */
-.carousel-section{padding:var(--space-7) 0;background:var(--cream-100);}
+/* Full-bleed: no side padding/margins/borders/radius so it spans the
+   viewport edge-to-edge. Height is capped (not aspect-ratio driven) so
+   the top of the "Recent posts" section still peeks into view. */
+.carousel-section{padding:0;background:var(--cream-100);position:relative;}
 .carousel{
   position:relative;
-  max-width:var(--container-max);
-  margin:0 auto;
+  width:100%;
+  margin:0;
   overflow:hidden;
-  border-radius:var(--radius-lg);
-  border:1px solid var(--border-hairline);
-  box-shadow:var(--shadow-card);
+  border-radius:0;
+  border:none;
+  box-shadow:none;
 }
 .carousel-track{display:flex;transition:transform var(--duration-base) var(--ease-standard);}
 .carousel-slide{
   flex:0 0 100%;
-  aspect-ratio:21/7;
+  height:clamp(220px,42vh,420px);
   display:flex;
   align-items:flex-end;
   justify-content:flex-start;
@@ -268,21 +271,25 @@ button{font-family:var(--font-serif);}
 .carousel-arrow.prev{left:var(--space-4);}
 .carousel-arrow.next{right:var(--space-4);}
 .carousel-dots{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:var(--space-3);
   display:flex;
   justify-content:center;
   gap:8px;
-  margin-top:var(--space-4);
+  z-index:2;
 }
 .carousel-dot{
   width:8px;
   height:8px;
   border-radius:var(--radius-pill);
-  background:var(--gray-300);
-  border:none;
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(255,255,255,0.8);
   cursor:pointer;
   padding:0;
 }
-.carousel-dot.active{background:var(--oxford-blue);}
+.carousel-dot.active{background:var(--gold);border-color:var(--gold);}
 
 /* ---------- section headings ---------- */
 .section{padding:var(--space-8) 0;}
@@ -314,6 +321,7 @@ button{font-family:var(--font-serif);}
   transition:box-shadow var(--duration-base) var(--ease-standard);
 }
 .post-card:hover{box-shadow:var(--shadow-raised);}
+.post-card[data-open-signup]{cursor:pointer;}
 .post-card .post-thumb{
   aspect-ratio:16/9;
   background:linear-gradient(135deg,var(--oxford-blue-050),var(--oxford-blue-100));
@@ -445,6 +453,27 @@ button{font-family:var(--font-serif);}
   color:var(--oxford-blue-300);
   flex-wrap:wrap;
   gap:8px;
+}
+
+/* ---------- individual post page ---------- */
+.post-page-header{max-width:var(--container-narrow);margin:0 auto;padding:var(--space-7) var(--space-4) 0;}
+.post-page-header h1{font-size:var(--fs-h1);color:var(--oxford-blue);line-height:var(--lh-heading);}
+.post-page-meta{display:flex;gap:var(--space-3);align-items:center;color:var(--text-muted);font-size:var(--fs-small);margin-top:var(--space-3);}
+.post-content{max-width:var(--container-narrow);margin:0 auto;padding:var(--space-6) var(--space-4) 0;}
+.post-content p{font-size:var(--fs-body);line-height:var(--lh-body);margin-bottom:var(--space-4);}
+.post-nav-buttons{
+  display:flex;
+  justify-content:space-between;
+  gap:var(--space-4);
+  max-width:var(--container-narrow);
+  margin:var(--space-7) auto 0;
+  padding:var(--space-5) var(--space-4) var(--space-9);
+  border-top:1px solid var(--border-hairline);
+}
+.post-nav-buttons .btn.disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+  pointer-events:none;
 }
 
 /* ---------- modal ---------- */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Your Blog Name] — Free exclusive content for IB & IGCSE students</title>
+<title>The IO Prep — Free exclusive content for IB & IGCSE students</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Lucide icons, loaded from CDN — see design system "Iconography" note -->
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -14,7 +14,7 @@
 <header class="site-header">
   <a href="index.html" class="brand" aria-label="Home">
     <span class="brand-mark">LOGO</span>
-    <span class="brand-name">[Your Blog Name]<small>Free companion content</small></span>
+    <span class="brand-name">The IO Prep<small>Free companion content</small></span>
   </a>
 
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -125,7 +125,7 @@
       <div class="footer-brand">
         <a href="index.html" class="brand">
           <span class="brand-mark">LOGO</span>
-          <span class="brand-name">[Your Blog Name]</span>
+          <span class="brand-name">The IO Prep</span>
         </a>
         <p class="footer-tagline">[Placeholder tagline — one line about who this is for and what they'll get.]</p>
         <div class="social-row">
@@ -149,7 +149,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 [Your Blog Name]. All rights reserved.</span>
+      <span>© 2026 The IO Prep. All rights reserved.</span>
       <span>[Placeholder — privacy policy / contact link]</span>
     </div>
   </div>
@@ -206,20 +206,24 @@
 <script src="blogs-data.js"></script>
 <script src="script.js"></script>
 <script>
-  // Render latest 3 posts on the homepage
+  // Render latest 3 posts on the homepage. Clicking a card doesn't link
+  // straight to the post — it opens the mailing list signup modal first
+  // (data-open-signup + data-redirect-href, handled in script.js), and
+  // only sends the visitor on to the post once the modal is closed.
   document.addEventListener("DOMContentLoaded", function () {
     const wrap = document.getElementById("latest-posts");
     const latest = getSortedPosts().slice(0, 3);
     wrap.innerHTML = latest.map(function (post) {
+      const dest = post.url || ("blogs.html#" + post.id);
       return (
-        '<article class="post-card">' +
+        '<article class="post-card" data-open-signup data-redirect-href="' + dest + '" tabindex="0" role="button" aria-label="Read: ' + post.title + '">' +
           '<div class="post-thumb">Placeholder image</div>' +
           '<div class="post-body">' +
             '<span class="post-tag">' + post.tag + '</span>' +
             '<h3>' + post.title + '</h3>' +
             '<span class="post-date">' + formatDate(post.date) + '</span>' +
             '<p class="post-excerpt">' + post.excerpt + '</p>' +
-            '<a class="post-readmore" href="blogs.html#' + post.id + '">Read more →</a>' +
+            '<span class="post-readmore">Read more →</span>' +
           '</div>' +
         '</article>'
       );
