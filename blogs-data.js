@@ -22,14 +22,16 @@ const BLOG_POSTS = [
     title: "[Placeholder title] How to structure a Paper 1 response",
     excerpt: "[Placeholder excerpt — a short 1–2 sentence summary of the post goes here.]",
     date: "2026-07-12",
-    tag: "IGCSE English"
+    tag: "IGCSE English",
+    url: "20260712.html"
   },
   {
     id: "post-3",
     title: "[Placeholder title] What I wish I'd known before exam season",
     excerpt: "[Placeholder excerpt — a short 1–2 sentence summary of the post goes here.]",
     date: "2026-07-02",
-    tag: "Study tips"
+    tag: "Study tips",
+    url: "20260702.html"
   },
   {
     id: "post-4",

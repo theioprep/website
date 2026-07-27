@@ -18,23 +18,35 @@ document.addEventListener("DOMContentLoaded", function () {
   // elements added later, e.g. the recent-post cards rendered by the
   // per-page inline script after this file has already run.
   const modalOverlay = document.getElementById("signup-modal");
-  let pendingRedirect = null; // set when a trigger wants a redirect after the modal closes
+  const modalForm = modalOverlay ? modalOverlay.querySelector("form[data-signup-form]") : null;
+  const gateNote = modalOverlay ? modalOverlay.querySelector("[data-gate-note]") : null;
+  let pendingRedirect = null; // the post URL waiting behind the gate, if any
 
   function openModal(redirectHref) {
     if (!modalOverlay) return;
     pendingRedirect = redirectHref || null;
+    if (gateNote) gateNote.style.display = pendingRedirect ? "block" : "none";
     modalOverlay.classList.add("open");
     document.body.style.overflow = "hidden";
   }
+  // Plain close (X, backdrop click, Escape): just hide the modal. This is
+  // the "exit without submitting" path — the gated post must NOT open, so
+  // pendingRedirect is dropped rather than acted on.
   function closeModal() {
     if (!modalOverlay) return;
     modalOverlay.classList.remove("open");
     document.body.style.overflow = "";
-    if (pendingRedirect) {
-      const dest = pendingRedirect;
-      pendingRedirect = null;
-      window.location.href = dest;
-    }
+    pendingRedirect = null;
+  }
+  // Only called after a genuine form submission — this is the one path
+  // that's allowed to carry the visitor through to the gated post.
+  function closeModalAndProceed() {
+    if (!modalOverlay) return;
+    const dest = pendingRedirect;
+    modalOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+    pendingRedirect = null;
+    if (dest) window.location.href = dest;
   }
 
   document.addEventListener("click", function (e) {
@@ -77,7 +89,13 @@ document.addEventListener("DOMContentLoaded", function () {
         successEl.textContent = "Thanks — you're on the list. Check your inbox to confirm.";
       }
       form.reset();
-      setTimeout(closeModal, 1600);
+      // Only the modal's own form is allowed to carry a gated redirect
+      // through; the inline band form on blogs.html never has one set.
+      if (form === modalForm) {
+        setTimeout(closeModalAndProceed, 1400);
+      } else {
+        setTimeout(closeModal, 1400);
+      }
     });
   });
 

@@ -513,6 +513,16 @@ button{font-family:var(--font-serif);}
 .modal-close:hover{color:var(--oxford-blue);}
 .modal h3{font-size:var(--fs-h3);color:var(--oxford-blue);margin-bottom:8px;}
 .modal p.modal-sub{color:var(--text-muted);font-size:var(--fs-small);margin-bottom:var(--space-5);}
+.gate-note{
+  display:none; /* toggled on by script.js when a post is gated behind this form */
+  background:var(--gold-100);
+  border:1px solid var(--gold-300);
+  color:var(--gold-700);
+  border-radius:var(--radius-sm);
+  padding:10px 12px;
+  font-size:var(--fs-small);
+  margin-bottom:var(--space-5);
+}
 
 .field{margin-bottom:var(--space-4);}
 .field label{display:block;font-size:var(--fs-caption);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}

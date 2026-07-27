@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blogs — The IO Prep</title>
+<!--
+  TEST POST PAGE — placeholder/random body text.
+  Naming convention: individual post pages are named by date, YYYYMMDD.html
+  e.g. this one (20260702.html) corresponds to blogs-data.js "post-3" (2026-07-02).
+  Duplicate this file for each new post, update the title/meta/content and
+  the prev/next hrefs at the bottom. "Older posts" falls back to the
+  blogs.html anchor for post-4 since that post doesn't have its own page yet.
+-->
+<title>20260702 — The IO Prep</title>
 <link rel="stylesheet" href="styles.css">
-<!-- Lucide icons, loaded from CDN — see design system "Iconography" note -->
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -31,35 +38,31 @@
   </div>
 </header>
 
-<!-- ================= PAGE INTRO ================= -->
-<section class="page-intro">
-  <div class="container">
-    <div class="eyebrow">All posts</div>
-    <h1>Blog</h1>
-    <p>[Placeholder intro — a sentence or two describing what this blog covers and how it relates to our Instagram/YouTube content.]</p>
+<!-- ================= POST HEADER ================= -->
+<section class="post-page-header">
+  <span class="post-tag">Study tips</span>
+  <h1>20260702</h1>
+  <div class="post-page-meta">
+    <span>2 July 2026</span>
+    <span>·</span>
+    <span>[Placeholder title — "What I wish I'd known before exam season"]</span>
   </div>
 </section>
 
-<!-- ================= ALL POSTS ================= -->
-<section class="section" style="padding-top:0;">
-  <div class="container">
-    <div class="post-list" id="all-posts"><!-- injected by script.js --></div>
-  </div>
-</section>
+<!-- ================= POST BODY (placeholder / random text) ================= -->
+<article class="post-content">
+  <p>[Placeholder body text] Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+  <p>Pellentesque in ipsum id orci porta dapibus. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt.</p>
+  <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
+  <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+  <p>[Placeholder — replace all of the above with the real post content when it's ready.]</p>
+</article>
 
-<!-- ================= INLINE SIGNUP BAND ================= -->
-<section class="signup-band">
-  <div class="container">
-    <h2>Never miss a post</h2>
-    <p>Join the free mailing list for new posts and exclusive extras straight to your inbox.</p>
-    <form class="inline-signup-form" data-signup-form>
-      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
-      <button type="submit" class="btn btn-gold">Sign up</button>
-      <div class="form-success" style="flex-basis:100%;"></div>
-    </form>
-    <p class="form-note" style="color:var(--oxford-blue-100);">Want to tell us your year, program, and subject interests too? <a href="#" data-open-signup style="color:var(--gold-300);">Use the full sign-up form</a>.</p>
-  </div>
-</section>
+<!-- ================= PREV / NEXT ================= -->
+<nav class="post-nav-buttons" aria-label="Post navigation">
+  <a href="blogs.html#post-4" class="btn btn-secondary">← Older posts</a>
+  <a href="20260712.html" class="btn btn-secondary">Next post →</a>
+</nav>
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
@@ -107,12 +110,12 @@
     <p class="gate-note" data-gate-note>Submit this form to unlock the post you clicked on.</p>
     <form data-signup-form>
       <div class="field">
-        <label for="email2">Email address</label>
-        <input type="email" id="email2" name="email" placeholder="you@example.com" required>
+        <label for="email5">Email address</label>
+        <input type="email" id="email5" name="email" placeholder="you@example.com" required>
       </div>
       <div class="field">
-        <label for="year2">Year in school</label>
-        <select id="year2" name="year" required>
+        <label for="year5">Year in school</label>
+        <select id="year5" name="year" required>
           <option value="" disabled selected>Select your year</option>
           <option>Year 9</option>
           <option>Year 10</option>
@@ -123,8 +126,8 @@
         </select>
       </div>
       <div class="field">
-        <label for="program2">Program</label>
-        <select id="program2" name="program" required>
+        <label for="program5">Program</label>
+        <select id="program5" name="program" required>
           <option value="" disabled selected>Select your program</option>
           <option>IB</option>
           <option>IGCSE</option>
@@ -149,28 +152,5 @@
 
 <script src="blogs-data.js"></script>
 <script src="script.js"></script>
-<script>
-  // Render all posts, newest first
-  document.addEventListener("DOMContentLoaded", function () {
-    const wrap = document.getElementById("all-posts");
-    const posts = getSortedPosts();
-    wrap.innerHTML = posts.map(function (post) {
-      const dest = post.url || ("#" + post.id);
-      return (
-        '<article class="post-row" id="' + post.id + '">' +
-          '<div class="post-thumb">Placeholder image</div>' +
-          '<div class="post-body">' +
-            '<span class="post-tag">' + post.tag + '</span>' +
-            '<h3>' + post.title + '</h3>' +
-            '<span class="post-date">' + formatDate(post.date) + '</span>' +
-            '<p class="post-excerpt">' + post.excerpt + '</p>' +
-            '<a class="post-readmore" href="' + dest + '">Read more →</a>' +
-          '</div>' +
-        '</article>'
-      );
-    }).join("");
-    if (window.lucide) window.lucide.createIcons();
-  });
-</script>
 </body>
 </html>
