@@ -1,0 +1,14 @@
+:root{
+--radius-sm:2px;
+--radius-md:3px;
+--radius-lg:4px;
+--radius-pill:999px;
+--border-w-hairline:1px;
+--border-w-rule:2px;
+--shadow-card:0 1px 2px rgba(0,33,71,0.06),0 2px 8px rgba(0,33,71,0.07);
+--shadow-raised:0 4px 16px rgba(0,33,71,0.12);
+--shadow-none:none;
+--ease-standard:cubic-bezier(.4,0,.2,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-base:200ms; /* @kind other */
+}

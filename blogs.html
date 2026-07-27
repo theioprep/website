@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Your Blog Name] — Free exclusive content for IB & IGCSE students</title>
+<title>Blogs — [Your Blog Name]</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Lucide icons, loaded from CDN — see design system "Iconography" note -->
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -22,8 +22,8 @@
   </button>
 
   <nav class="main-nav">
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="blogs.html" class="nav-link">Blogs</a>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="blogs.html" class="nav-link active">Blogs</a>
   </nav>
 
   <div class="nav-right">
@@ -31,90 +31,33 @@
   </div>
 </header>
 
-<!-- ================= CAROUSEL ================= -->
-<section class="carousel-section">
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-slide" style="background:linear-gradient(135deg,var(--oxford-blue-500),var(--oxford-blue-900));">
-        <div class="carousel-slide-label">
-          <div class="place">[Placeholder photo — University of Oxford]</div>
-          <div class="caption">Wide campus photo goes here</div>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background:linear-gradient(135deg,var(--oxford-blue-700),var(--oxford-blue-900));">
-        <div class="carousel-slide-label">
-          <div class="place">[Placeholder photo — University of Cambridge]</div>
-          <div class="caption">Wide campus photo goes here</div>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background:linear-gradient(135deg,var(--oxford-blue-500),var(--oxford-blue-700));">
-        <div class="carousel-slide-label">
-          <div class="place">[Placeholder photo — Harvard University]</div>
-          <div class="caption">Wide campus photo goes here</div>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background:linear-gradient(135deg,var(--oxford-blue-900),var(--oxford-blue-700));">
-        <div class="carousel-slide-label">
-          <div class="place">[Placeholder photo — Yale University]</div>
-          <div class="caption">Wide campus photo goes here</div>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background:linear-gradient(135deg,var(--oxford-blue-700),var(--oxford-blue-500));">
-        <div class="carousel-slide-label">
-          <div class="place">[Placeholder photo — Princeton University]</div>
-          <div class="caption">Wide campus photo goes here</div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-arrow prev" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
-    <button class="carousel-arrow next" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
-  </div>
-  <div class="carousel-dots"></div>
-</section>
-
-<!-- ================= LATEST POSTS ================= -->
-<section class="section">
+<!-- ================= PAGE INTRO ================= -->
+<section class="page-intro">
   <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">From the blog</div>
-      <h2>Recent posts</h2>
-    </div>
-    <div class="post-grid" id="latest-posts"><!-- injected by script.js --></div>
-    <div style="margin-top:32px;text-align:center;">
-      <a href="blogs.html" class="btn btn-secondary">Read all posts</a>
-    </div>
+    <div class="eyebrow">All posts</div>
+    <h1>Blog</h1>
+    <p>[Placeholder intro — a sentence or two describing what this blog covers and how it relates to our Instagram/YouTube content.]</p>
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section class="faq-section">
+<!-- ================= ALL POSTS ================= -->
+<section class="section" style="padding-top:0;">
   <div class="container">
-    <div class="section-head" style="text-align:center;">
-      <div class="eyebrow">Frequently asked</div>
-      <h2>Who we are &amp; why to follow along</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Who are we?</summary>
-        <div class="faq-answer">[Placeholder — introduce yourselves here: names, background, and how this blog connects to your Instagram/YouTube.]</div>
-      </details>
-      <details class="faq-item">
-        <summary>What do we do?</summary>
-        <div class="faq-answer">[Placeholder — describe the content you post on Instagram/YouTube and what the free bonus material on this site covers.]</div>
-      </details>
-      <details class="faq-item">
-        <summary>Why should you follow us?</summary>
-        <div class="faq-answer">[Placeholder — explain what makes this content worth following: credentials, results, examples, testimonials, etc.]</div>
-      </details>
-      <details class="faq-item">
-        <summary>Is this content really free?</summary>
-        <div class="faq-answer">[Placeholder — yes/no, and note anything paid you offer elsewhere, if relevant.]</div>
-      </details>
-      <details class="faq-item">
-        <summary>How often do you post?</summary>
-        <div class="faq-answer">[Placeholder — set expectations for posting frequency across Instagram, YouTube, and this blog.]</div>
-      </details>
-    </div>
+    <div class="post-list" id="all-posts"><!-- injected by script.js --></div>
+  </div>
+</section>
+
+<!-- ================= INLINE SIGNUP BAND ================= -->
+<section class="signup-band">
+  <div class="container">
+    <h2>Never miss a post</h2>
+    <p>Join the free mailing list for new posts and exclusive extras straight to your inbox.</p>
+    <form class="inline-signup-form" data-signup-form>
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+      <button type="submit" class="btn btn-gold">Sign up</button>
+      <div class="form-success" style="flex-basis:100%;"></div>
+    </form>
+    <p class="form-note" style="color:var(--oxford-blue-100);">Want to tell us your year, program, and subject interests too? <a href="#" data-open-signup style="color:var(--gold-300);">Use the full sign-up form</a>.</p>
   </div>
 </section>
 
@@ -163,12 +106,12 @@
     <p class="modal-sub">Get exclusive posts and updates that don't go anywhere else — straight to your inbox.</p>
     <form data-signup-form>
       <div class="field">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <label for="email2">Email address</label>
+        <input type="email" id="email2" name="email" placeholder="you@example.com" required>
       </div>
       <div class="field">
-        <label for="year">Year in school</label>
-        <select id="year" name="year" required>
+        <label for="year2">Year in school</label>
+        <select id="year2" name="year" required>
           <option value="" disabled selected>Select your year</option>
           <option>Year 9</option>
           <option>Year 10</option>
@@ -179,8 +122,8 @@
         </select>
       </div>
       <div class="field">
-        <label for="program">Program</label>
-        <select id="program" name="program" required>
+        <label for="program2">Program</label>
+        <select id="program2" name="program" required>
           <option value="" disabled selected>Select your program</option>
           <option>IB</option>
           <option>IGCSE</option>
@@ -206,20 +149,20 @@
 <script src="blogs-data.js"></script>
 <script src="script.js"></script>
 <script>
-  // Render latest 3 posts on the homepage
+  // Render all posts, newest first
   document.addEventListener("DOMContentLoaded", function () {
-    const wrap = document.getElementById("latest-posts");
-    const latest = getSortedPosts().slice(0, 3);
-    wrap.innerHTML = latest.map(function (post) {
+    const wrap = document.getElementById("all-posts");
+    const posts = getSortedPosts();
+    wrap.innerHTML = posts.map(function (post) {
       return (
-        '<article class="post-card">' +
+        '<article class="post-row" id="' + post.id + '">' +
           '<div class="post-thumb">Placeholder image</div>' +
           '<div class="post-body">' +
             '<span class="post-tag">' + post.tag + '</span>' +
             '<h3>' + post.title + '</h3>' +
             '<span class="post-date">' + formatDate(post.date) + '</span>' +
             '<p class="post-excerpt">' + post.excerpt + '</p>' +
-            '<a class="post-readmore" href="blogs.html#' + post.id + '">Read more →</a>' +
+            '<a class="post-readmore" href="#' + post.id + '">Read more →</a>' +
           '</div>' +
         '</article>'
       );

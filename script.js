@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Shared vanilla JS: mobile nav toggle, signup modal, signup form handler,
+   and an optional carousel (only runs if a .carousel element exists).
+   ========================================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* ---------- mobile nav toggle ---------- */
+  const navToggle = document.querySelector(".nav-toggle");
+  const mainNav = document.querySelector(".main-nav");
+  if (navToggle && mainNav) {
+    navToggle.addEventListener("click", function () {
+      mainNav.classList.toggle("open");
+    });
+  }
+
+  /* ---------- signup modal ---------- */
+  const modalOverlay = document.getElementById("signup-modal");
+  const openButtons = document.querySelectorAll("[data-open-signup]");
+  const closeButtons = document.querySelectorAll("[data-close-signup]");
+
+  function openModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  openButtons.forEach((btn) => btn.addEventListener("click", openModal));
+  closeButtons.forEach((btn) => btn.addEventListener("click", closeModal));
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", function (e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeModal();
+    });
+  }
+
+  /* ---------- signup form(s) — modal + any inline forms ---------- */
+  // TODO: wire this up to a real email provider (Mailchimp, ConvertKit,
+  // Beehiiv, etc.). Right now it just prevents default and shows a
+  // success message so the UI is demonstrable without a backend.
+  document.querySelectorAll("form[data-signup-form]").forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const successEl = form.querySelector(".form-success");
+      if (successEl) {
+        successEl.classList.add("show");
+        successEl.textContent = "Thanks — you're on the list. Check your inbox to confirm.";
+      }
+      form.reset();
+      setTimeout(closeModal, 1600);
+    });
+  });
+
+  /* ---------- carousel ---------- */
+  const carousel = document.querySelector(".carousel");
+  if (carousel) {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    const dotsWrap = carousel.parentElement.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-arrow.prev");
+    const nextBtn = carousel.querySelector(".carousel-arrow.next");
+    let index = 0;
+    let timer = null;
+
+    function renderDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot" + (i === index ? " active" : "");
+        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+        dot.addEventListener("click", () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + index * 100 + "%)";
+      renderDots();
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      timer = setInterval(next, 5000);
+    }
+    function stopAutoplay() {
+      if (timer) clearInterval(timer);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => { prev(); startAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => { next(); startAutoplay(); });
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+
+    renderDots();
+    startAutoplay();
+  }
+
+  /* ---------- lucide icons ---------- */
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+});

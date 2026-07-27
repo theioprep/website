@@ -1,0 +1,1 @@
+No logo, icon set, or imagery was supplied for The IO Prep. Nothing has been drawn here to fill the gap — see the root readme.md "Logo" and "Iconography" sections. Once real assets exist, add them to this folder (e.g. logo.svg, wordmark.svg, instructor-photo.jpg) and this note can go.

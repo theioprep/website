@@ -1,0 +1,30 @@
+:root{
+--font-serif:"Times New Roman",Times,Georgia,"Liberation Serif",serif;
+--font-serif-display:"Times New Roman",Times,Georgia,serif;
+--font-mono:"Courier New",Courier,monospace;
+--fs-display:56px;
+--fs-h1:40px;
+--fs-h2:32px;
+--fs-h3:24px;
+--fs-h4:20px;
+--fs-body-lg:19px;
+--fs-body:17px;
+--fs-small:15px;
+--fs-caption:13px;
+--fs-eyebrow:13px;
+--lh-tight:1.12; /* @kind other */
+--lh-heading:1.22; /* @kind other */
+--lh-body:1.6; /* @kind other */
+--lh-loose:1.75; /* @kind other */
+--ls-eyebrow:0.14em; /* @kind other */
+--ls-heading:0; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-bold:700; /* @kind other */
+--text-display:var(--fw-bold) var(--fs-display)/var(--lh-tight) var(--font-serif-display);
+--text-h1:var(--fw-bold) var(--fs-h1)/var(--lh-heading) var(--font-serif-display);
+--text-h2:var(--fw-bold) var(--fs-h2)/var(--lh-heading) var(--font-serif-display);
+--text-h3:var(--fw-bold) var(--fs-h3)/var(--lh-heading) var(--font-serif-display);
+--text-body:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-serif);
+--text-small:var(--fw-regular) var(--fs-small)/var(--lh-body) var(--font-serif);
+--text-caption:var(--fw-regular) var(--fs-caption)/var(--lh-body) var(--font-serif);
+}
