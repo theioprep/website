@@ -150,21 +150,24 @@
 <script src="blogs-data.js"></script>
 <script src="script.js"></script>
 <script>
-  // Render all posts, newest first
+  // Render all posts, newest first. Same gate as the homepage: clicking a
+  // row opens the mailing list modal (data-open-signup + data-redirect-href,
+  // handled in script.js) instead of linking straight to the post — the
+  // post only opens once the modal has actually been submitted.
   document.addEventListener("DOMContentLoaded", function () {
     const wrap = document.getElementById("all-posts");
     const posts = getSortedPosts();
     wrap.innerHTML = posts.map(function (post) {
       const dest = post.url || ("#" + post.id);
       return (
-        '<article class="post-row" id="' + post.id + '">' +
+        '<article class="post-row" id="' + post.id + '" data-open-signup data-redirect-href="' + dest + '" tabindex="0" role="button" aria-label="Read: ' + post.title + '">' +
           '<div class="post-thumb">Placeholder image</div>' +
           '<div class="post-body">' +
             '<span class="post-tag">' + post.tag + '</span>' +
             '<h3>' + post.title + '</h3>' +
             '<span class="post-date">' + formatDate(post.date) + '</span>' +
             '<p class="post-excerpt">' + post.excerpt + '</p>' +
-            '<a class="post-readmore" href="' + dest + '">Read more →</a>' +
+            '<span class="post-readmore">Read more →</span>' +
           '</div>' +
         '</article>'
       );

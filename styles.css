@@ -363,6 +363,7 @@ button{font-family:var(--font-serif);}
   transition:box-shadow var(--duration-base) var(--ease-standard);
 }
 .post-row:hover{box-shadow:var(--shadow-raised);}
+.post-row[data-open-signup]{cursor:pointer;}
 .post-row .post-thumb{
   flex:0 0 220px;
   aspect-ratio:16/9;
